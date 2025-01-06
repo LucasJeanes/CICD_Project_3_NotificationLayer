@@ -7,7 +7,62 @@ import java.util.List;
 @RestController
 @RequestMapping("/notify")
 public class NotificationController {
+    //USER API CONNECTIONS-----
+    @PostMapping("/user/created")
+    public String notifyUserCreated(@RequestBody User user) {
+        String createdUser = "User " + user.getUsername() + " registered successfully.\nID: " + user.getId();
+        return createdUser;
+    }
 
+    @PostMapping("/user/all")
+    public String notifyAllUsers(@RequestBody List<User> users) {
+        return "Retrieved all " + users.size() + " users. \n" + users;
+    }
+
+    @PostMapping("/user/byId")
+    public String notifyUserById(@RequestBody User user) {
+        return "Retrieved user with ID: " + user.getId() + "\n " + user;
+    }
+
+    @PostMapping("/user/updated")
+    public String notifyUserUpdated(@RequestBody User userDetails) {
+        return "User with ID: " + userDetails.getId() + "updated: \n" + userDetails;
+    }
+
+    @PostMapping("/user/deleted")
+    public String notifyUserDeleted(@RequestParam Long id) {
+        return "User with ID: " + id + " deleted successfully";
+    }
+    //-----USER API METHODS
+
+    //PRODUCT API METHODS-----
+    @PostMapping("/product/created")
+    public String notifyProductCreated(@RequestBody Product productDetails) {
+        return "Registered new product with ID: " + productDetails.getId() + "\n " + productDetails;
+    }
+
+    @PostMapping("/product/all")
+    public String notifyAllProducts(@RequestBody List<Product> products) {
+        return "Retrieved all " + products.size() + " products. \n" + products;
+    }
+
+    @PostMapping("/product/byId")
+    public String notifyProductById(@RequestBody Product product) {
+        return "Retrieved product with ID: " + product.getId() + "\n " + product;
+    }
+
+    @PostMapping("/product/updated")
+    public String notifyProductUpdated(@RequestBody Product product) {
+        return "Updated product with ID: " + product.getId() + "\n " + product;
+    }
+
+    @PostMapping("/product/deleted")
+    public String notifyProductDeleted(@RequestParam Long id) {
+        return "Deleted product with ID: " + id;
+    }
+    //-----PRODUCT API METHODS
+
+    //ORDER API METHODS-----
     @PostMapping("/order/created")
     public String notifyOrderCreated(@RequestBody Order orderDetails) {
         String createdOrder = "Order created with ID: " + orderDetails.getId() + orderDetails;
@@ -49,4 +104,5 @@ public class NotificationController {
     public String notifyOrderDeleted(@RequestParam Long id) {
         return "Deleted order with ID: " + id;
     }
+    //-----ORDER API METHODS
 }
