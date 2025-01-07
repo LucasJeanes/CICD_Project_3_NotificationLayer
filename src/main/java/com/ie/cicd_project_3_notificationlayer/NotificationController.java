@@ -10,7 +10,7 @@ public class NotificationController {
     //USER API CONNECTIONS-----
     @PostMapping("/user/created")
     public String notifyUserCreated(@RequestBody User user) {
-        String createdUser = "User " + user.getUsername() + " registered successfully.\nID: " + user.getId();
+        String createdUser = "User " + user.getUsername() + " registered successfully. ID: " + user.getId();
         return createdUser;
     }
 
