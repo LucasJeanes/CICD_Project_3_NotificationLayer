@@ -5,3 +5,8 @@ Notification layer application.
 Application layer app can be found here: https://github.com/LucasJeanes/CICD_Project_1_ApplicationLayer
 
 Service layer app can be found here: https://github.com/LucasJeanes/CICD_Project_2_ServiceLayer
+
+
+Project setup guide can be found here:
+
+https://github.com/LucasJeanes/CICD_Project_1_ApplicationLayer
